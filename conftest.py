@@ -11,6 +11,8 @@ def pytest_addoption(parser):
 def browser():
     print("\nstart browser for test..")
     browser = webdriver.Chrome()
+    get_url=browser.current_url
+    print(get_url)
     yield browser
     print("\nquit browser..")
     browser.quit()

@@ -11,6 +11,7 @@ def pytest_addoption(parser):
 def browser():
     print("\nstart browser for test..")
     browser = webdriver.Chrome()
+
     yield browser
     print("\nquit browser..")
     browser.quit()
@@ -23,6 +24,7 @@ def browser(request):
     if browser_name == "chrome":
         print("\nstart chrome browser for test..")
         browser = webdriver.Chrome()
+
     elif browser_name == "firefox":
         print("\nstart firefox browser for test..")
         browser = webdriver.Firefox()
