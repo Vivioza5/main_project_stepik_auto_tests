@@ -21,6 +21,9 @@ class BasePage():
         self.browser.get(self.url)
         time.sleep(3)
 
+    def go_back(self):
+        self.browser.back()
+
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)

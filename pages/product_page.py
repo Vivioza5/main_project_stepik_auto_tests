@@ -29,7 +29,7 @@ class ProductPage(BasePage):
         self.bascket_message_price=bascket_message_price.text
 
     def item_added_to_cart_right(self):
-        time.sleep(200)
+        # time.sleep(200)
         product_name=self.product_name
         product_price=self.bascket_message_price
         bascket_message_name=self.bascket_message_name

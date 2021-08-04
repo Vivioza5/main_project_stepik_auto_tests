@@ -10,6 +10,7 @@ class BasePageLocators():
 class BasketPageLocators():
     BASKET_PAGE=(By.CSS_SELECTOR, "#basket")
     BASKET_ITEM=(By.CLASS_NAME, "basket-items")
+    BASKET_EMPTY_MESS=(By.ID, "content_inner")
 
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")

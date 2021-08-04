@@ -1,3 +1,5 @@
+import time
+
 import pytest
 
 from .pages.login_page import LoginPage
@@ -17,14 +19,13 @@ link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook
 @pytest.mark.main
 def test_guest_can_add_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
-    # link1="http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
     product=ProductPage(browser, link)
     product.open()
     product.add_to_cart_foo()
     product.solve_quiz_and_get_code()
     product.item_added_to_cart()
     product.item_added_to_cart_right()
-    # product.should_not_be_success_message()
+    product.should_not_be_success_message()
 
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     product=ProductPage(browser, link)
