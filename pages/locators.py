@@ -7,10 +7,15 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
 
+class BasketPageLocators():
+    BASKET_PAGE=(By.CSS_SELECTOR, "#basket")
+    BASKET_ITEM=(By.CLASS_NAME, "basket-items")
+
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
-
+    OPEN_BASKET_BTN = (By.CSS_SELECTOR,"div.basket-mini.pull-right.hidden-xs a" )
+# //*[@id="default"]/header/div[1]/div/div[2]/span/a
 
 class LoginPageLocators():
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")

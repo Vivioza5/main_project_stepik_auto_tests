@@ -7,7 +7,7 @@ from selenium.common.exceptions import NoAlertPresentException
 import math
 
 from selenium.webdriver.support.wait import WebDriverWait
-from .locators import  BasePageLocators
+from .locators import BasePageLocators, MainPageLocators, BasketPageLocators
 
 
 class BasePage():
@@ -19,7 +19,7 @@ class BasePage():
 
     def open(self):
         self.browser.get(self.url)
-        # time.sleep(5)
+        time.sleep(3)
 
     def is_element_present(self, how, what):
         try:
@@ -66,6 +66,8 @@ class BasePage():
         link.click()
 
     def should_be_login_link(self):
-        print(self.browser.current_url)
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
         # time.sleep(30)
+    def go_to_basket_page(self):
+        link = self.browser.find_element(*MainPageLocators.OPEN_BASKET_BTN)
+        link.click()
