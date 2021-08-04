@@ -25,32 +25,33 @@ def test_guest_can_add_product_to_basket(browser):
     product.item_added_to_cart()
     product.item_added_to_cart_right()
     # product.should_not_be_success_message()
-@pytest.mark.skip
+
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     product=ProductPage(browser, link)
     product.open()
     product.add_to_cart_foo()
     product.solve_quiz_and_get_code()
     product.should_not_be_success_message()
-@pytest.mark.skip
+
 def test_guest_cant_see_success_message(browser):
     product=ProductPage(browser, link)
     product.open()
     product.should_not_be_success_message()
-@pytest.mark.skip
+
 def test_message_disappeared_after_adding_product_to_basket(browser):
     product=ProductPage(browser, link)
     product.open()
     product.add_to_cart_foo()
     product.solve_quiz_and_get_code()
     product.should_not_be_success_message_visible()
-
+@pytest.mark.new
 def test_guest_should_see_login_link_on_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
     page.open()
     page.should_be_login_link()
 
+@pytest.mark.new
 def test_guest_can_go_login_link_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
