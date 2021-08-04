@@ -1,8 +1,12 @@
+from telnetlib import EC
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 import time
 from selenium.common.exceptions import NoAlertPresentException
 import math
+
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BasePage():
@@ -12,16 +16,15 @@ class BasePage():
         self.browser.implicitly_wait(timeout)
         # self.current_url=browser.current_url
 
-
     def open(self):
         self.browser.get(self.url)
-        time.sleep(5)
+        # time.sleep(5)
 
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)
         except (NoSuchElementException):
-           return False
+            return False
         return True
 
     def solve_quiz_and_get_code(self):
@@ -30,7 +33,7 @@ class BasePage():
         answer = str(math.log(abs((12 * math.sin(float(x))))))
         alert.send_keys(answer)
         alert.accept()
-        time.sleep(5)
+        # time.sleep(5)
         try:
             alert = self.browser.switch_to.alert
             alert_text = alert.text
@@ -38,3 +41,21 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+    def is_not_element_present(self, how, what, timeout=4):
+        try:
+            WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
+        except TimeoutException:
+            return True
+
+        return False
+
+    def is_disappeared(self, how, what, timeout=4):
+
+        try:
+            WebDriverWait(self.browser, timeout, 1, TimeoutException). \
+                until_not(EC.presence_of_element_located((how, what)))
+        except TimeoutException:
+            return False
+
+        return True

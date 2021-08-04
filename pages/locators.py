@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 
-
+class MainLocators():
+    LINK= "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
 
@@ -12,5 +13,7 @@ class ProductPageLocators():
     ADD_BASCKET_BTN=(By.CSS_SELECTOR, "#add_to_basket_form")
     PRODUCT_NAME=(By.CSS_SELECTOR, ".col-sm-6.product_main h1")
     PRODUCT_PRICE=(By.CLASS_NAME, "price_color")
-    PRODUCT_BASCKET_MESSAGE=(By.ID,"messages")
+    PRODUCT_BASCKET_MESSAGE=(By.XPATH,"//*[@id='messages']")
+    PRODUCT_BASCKET_MESSAGE_NAME=(By.XPATH,"//*[@id='messages']/div[1]/div")
+
 
