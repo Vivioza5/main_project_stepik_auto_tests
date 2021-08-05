@@ -17,7 +17,6 @@ class BasketPage(BasePage):
         assert "basket" in self.browser.current_url , "Login link is not presented"
 
     def should_not_be_items_in_basket(self):
-
         assert self.is_not_element_present(*BasketPageLocators.BASKET_ITEM),\
              "Items in basket is presented, but should not be"
 
